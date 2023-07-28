@@ -1,24 +1,91 @@
-<ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-img style="width: 300px; height: 150px" src="assets/imgs/logo.png" padding>
-          </ion-img>
-          <ion-title>Mi taller - MENU</ion-title>
-          <ion-item-divider>
-          </ion-item-divider>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of pages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
-              detail="false" [class.active-item]="selectedIndex == i">
-              <ion-img [src]="p.icon" style="width: 32px; height: 32px;"></ion-img>
-              <!-- <ion-icon slot="start" [ios]="p.icon'" [md]="p.icon-sharp'"></ion-icon> -->
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
-</ion-app>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+    <h1 class="ion-text-center ion-no-margin">
+      <img src="assets/imgs/logopequeño.png" alt="Logo" style="height: 20px; margin-right: 10px;">
+      ControlMONEY
+    </h1>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="start" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="ordenesdeservicio-listado" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="add" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Añadir Ingreso</span>
+      </ion-item>
+      <ion-item routerLink="clientes-listado" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="list" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Lista de Ingresos</span>
+      </ion-item>
+
+      <ion-item routerLink="/total-ingresos" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="stats-chart" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Total de Ingresos</span>
+      </ion-item>
+
+      <ion-item routerLink="/registro-gastos" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="add" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Añadir Gasto</span>
+      </ion-item>
+      <ion-item routerLink="home" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="list" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Lista de Gastos</span>
+      </ion-item>
+      <ion-item routerLink="profile" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="stats-chart" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Total de Gastos</span>
+      </ion-item>
+        
+      <ion-item routerLink="about" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="information-circle" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Acerca de</span>
+      </ion-item>
+    </ion-list>
+    
+
+  </ion-content>
+
+  <ion-footer>
+    <ion-list>
+      <ion-item routerDirection="forward" (click)="CerrarSesion()">
+        <ion-icon slot="start" name="log-out"></ion-icon>
+        Cerrar Sesion
+      </ion-item>
+    </ion-list>
+  </ion-footer>
+  
+</ion-menu>
+
+<ion-router-outlet id="main-content"></ion-router-outlet>
+
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom ">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="profile">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="about">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <ion-label>About</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

@@ -5,10 +5,7 @@ import { RegistrarusuarioPage } from './pages/usuarios/registrarusuario/registra
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  },
+  
   {
     path: '',
     redirectTo: 'login',
@@ -66,6 +63,26 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/tabs/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/tabs/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/tabs/about/about.module').then( m => m.AboutPageModule)
+  },
+
+
+
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   
 ];

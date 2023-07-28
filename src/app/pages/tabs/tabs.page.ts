@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private menuController: MenuController,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
+  CerrarSesion() {
+    this.router.navigate(['/login']);
+  }
+
+  closeMenu() {
+    this.menuController.close();
+  }
+  dirigirAbout(){
+    this.closeMenu();
+    this.router.navigate(['about']);
+  }
+  
 }

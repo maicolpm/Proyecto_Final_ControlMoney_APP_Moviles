@@ -1,13 +1,91 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>tabs</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-toggle>
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+    <h1 class="ion-text-center ion-no-margin">
+      <img src="assets/imgs/logopequeño.png" alt="Logo" style="height: 20px; margin-right: 10px;">
+      ControlMONEY
+    </h1>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-menu side="start" contentId="main-content">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">tabs</ion-title>
+      <ion-title>Menú</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="/registro-ingresos" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="add" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Añadir Ingreso</span>
+      </ion-item>
+      <ion-item routerLink="/lista-ingresos" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="list" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Lista de Ingresos</span>
+      </ion-item>
+
+      <ion-item routerLink="/total-ingresos" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="stats-chart" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Total de Ingresos</span>
+      </ion-item>
+
+      <ion-item routerLink="/registro-gastos" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="add" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Añadir Gasto</span>
+      </ion-item>
+      <ion-item routerLink="/lista-gastos" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="list" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Lista de Gastos</span>
+      </ion-item>
+      <ion-item routerLink="home" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="stats-chart" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Total de Gastos</span>
+      </ion-item>
+        
+      <ion-item routerLink="about" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="information-circle" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Acerca de</span>
+      </ion-item>
+    </ion-list>
+    
+
+  </ion-content>
+
+  <ion-footer>
+    <ion-list>
+      <ion-item routerDirection="forward" (click)="CerrarSesion()">
+        <ion-icon slot="start" name="log-out"></ion-icon>
+        Cerrar Sesion
+      </ion-item>
+    </ion-list>
+  </ion-footer>
+  
+</ion-menu>
+
+<ion-router-outlet id="main-content"></ion-router-outlet>
+
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom ">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="profile">
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Perfil</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="about">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <ion-label>About</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

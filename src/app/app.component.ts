@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -11,13 +14,43 @@ export class AppComponent {
     {
       title: 'Atenciones',
       url: '/ordenesdeservicio-listado',
-      icon: '/assets/imgs/icon_atenciones.png'
+      icon: '/assets/imgs/logo.png'
     },
     {
       title: 'Clientes',
       url: '/clientes-listado',
-      icon: '/assets/imgs/icon_clientes.png'
+      icon: '/assets/imgs/logo.png'
+    },
+    {
+      title: 'home',
+      url: '/home',
+      icon: '/assets/imgs/logo.png'
+    },
+    {
+      title: 'profile',
+      url: '/profile',
+      icon: '/assets/imgs/logo.png'
+    },
+    {
+      title: 'about',
+      url: '/about',
+      icon: '/assets/imgs/logo.png'
     }
   ];
-  constructor() {}
+  constructor(
+    private menuController: MenuController,
+    private router: Router) {}
+
+
+  CerrarSesion() {
+    this.router.navigate(['/login']);
+  }
+
+  closeMenu() {
+    this.menuController.close();
+  }
+  dirigirAbout(){
+    this.closeMenu();
+    this.router.navigate(['about']);
+  }
 }
