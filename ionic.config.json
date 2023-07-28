@@ -1,0 +1,7 @@
+{
+  "name": "capitulo06",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

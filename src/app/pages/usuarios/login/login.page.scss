@@ -1,0 +1,26 @@
+.sign-up{
+  padding: 50px;
+
+}
+ion-button{
+  width: 370px;
+}
+@media (min-width: 769px){
+  form{
+      width: 500px;
+       padding: 50px 10px;
+  }
+}
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px; /* Ajusta el margen inferior */
+  margin-top: 80px;
+}
+
+.avatar-image {
+  width: 150px; /* Ajusta el tamaño de la imagen */
+  height: 150px; /* Ajusta el tamaño de la imagen  */
+  border-radius: 10%; /* Hace que la imagen tenga forma de círculo */
+}
+

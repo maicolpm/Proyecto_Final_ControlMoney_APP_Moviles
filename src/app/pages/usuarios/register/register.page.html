@@ -1,0 +1,76 @@
+<ion-content>
+  <ion-toolbar>
+    <!-- Botón para retornar al login -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <br>
+  <h1 class="ion-text-center ion-no-margin">ControlMoney</h1>
+  <h2 class="ion-text-center ion-no-margin">Nuevo Usuario</h2>
+  <div class="content">
+
+    <div class="d-flex-center">
+      <form class="ion-text-center" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label>Awesome Label</ion-label>
+          <ion-icon slot="start" name="mail-outline"></ion-icon>
+          <ion-input autocomplete="email" type="email" label="Correo" icon="mail-outline"
+            formControlName="email"></ion-input>
+        </ion-item>
+
+        <div class="validators">
+          <div *ngIf="formRegister.get('email')?.hasError('required') && formRegister.get('email')?.touched">
+            El email es obligatorio.</div>
+          <div *ngIf="formRegister.get('email')?.hasError('email') && formRegister.get('email')?.touched">
+            Por favor, introduce un email válido.</div>
+        </div>
+
+        <ion-item>
+          <ion-label>Awesome Label</ion-label>
+          <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+          <ion-input type="password" label="Contraseña" icon="lock-closed-outline"
+            formControlName="password"></ion-input>
+
+        </ion-item>
+
+        <div class="validators">
+          <div *ngIf="formRegister.get('password')?.hasError('required') && formRegister.get('password')?.touched">
+            La contraseña es obligatoria.</div>
+          <div *ngIf="formRegister.get('password')?.hasError('minlength') && formRegister.get('password')?.touched">
+            La contraseña debe tener al menos 6 caracteres.</div>
+          <div *ngIf="formRegister.get('password')?.hasError('pattern') && formRegister.get('password')?.touched">
+            La contraseña debe contener al menos un número.</div>
+        </div>
+
+        <ion-item>
+          <ion-label>Awesome Label</ion-label>
+          <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
+          <ion-input type="password" label="Confirmar Contraseña" icon="lock-closed-outline"
+            formControlName="confirmPassword"></ion-input>
+
+        </ion-item>
+
+        <div class="validators">
+          <div
+            *ngIf="formRegister.get('confirmPassword')?.hasError('required') && formRegister.get('confirmPassword')?.touched">
+            Por favor, confirma tu contraseña.</div>
+          <div *ngIf="formRegister.hasError('passwordMismatch') && formRegister.get('confirmPassword')?.touched">
+            Las contraseñas no coinciden.</div>
+        </div>
+
+
+
+        <div>
+          <ion-button class="ion-margin-vertical" [disabled]="formRegister.invalid" type="submit" shape="round">
+            Registrarme
+            <ion-icon slot="end" name="person-add-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+
+</ion-content>
