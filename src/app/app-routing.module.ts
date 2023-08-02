@@ -84,6 +84,38 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
+  {
+    path: 'gastos-add-edit',
+    loadChildren: () => import('./pages/gastos/gastos-add-edit/gastos-add-edit.module').then( m => m.GastosAddEditPageModule)
+  },
+  {
+    path: 'gastos-listado',
+    loadChildren: () => import('./pages/gastos/gastos-listado/gastos-listado.module').then( m => m.GastosListadoPageModule)
+  },
+  {
+    path: 'ingresos-add-edit',
+    loadChildren: () => import('./pages/ingresos/ingresos-add-edit/ingresos-add-edit.module').then( m => m.IngresosAddEditPageModule)
+  },
+  {
+    path: 'ingresos-listado',
+    loadChildren: () => import('./pages/ingresos/ingresos-listado/ingresos-listado.module').then( m => m.IngresosListadoPageModule)
+  },
+  {
+    path: 'categoria-gastos-add-edit',
+    loadChildren: () => import('./pages/categorias/categoria-gastos/categoria-gastos-add-edit/categoria-gastos-add-edit.module').then( m => m.CategoriaGastosAddEditPageModule)
+  },
+  {
+    path: 'categoria-gastos-listado',
+    loadChildren: () => import('./pages/categorias/categoria-gastos/categoria-gastos-listado/categoria-gastos-listado.module').then( m => m.CategoriaGastosListadoPageModule)
+  },
+  {
+    path: 'categoria-ingresos-add-edit',
+    loadChildren: () => import('./pages/categorias/categoria-ingresos/categoria-ingresos-add-edit/categoria-ingresos-add-edit.module').then( m => m.CategoriaIngresosAddEditPageModule)
+  },
+  {
+    path: 'categoria-ingresos-listado',
+    loadChildren: () => import('./pages/categorias/categoria-ingresos/categoria-ingresos-listado/categoria-ingresos-listado.module').then( m => m.CategoriaIngresosListadoPageModule)
+  },
   
 ];
 

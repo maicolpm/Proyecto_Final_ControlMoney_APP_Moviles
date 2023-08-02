@@ -28,8 +28,8 @@ export class LoginPage implements OnInit {
     this.userService
       .login(this.formLogin.value)
       .then((response) => {
-        console.log(response);
-        this.router.navigate(['/clientes-listado']);
+        console.log(response.user.uid);
+        this.router.navigate(['/gastos-listado'], { queryParams: { uid: response.user.uid } });
       })
       .catch((error) => console.log(error));
   }
@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
       .loginWithGoogle()
       .then((response) => {
         console.log(response);
-        this.router.navigate(['/clientes-listado']);
+        this.router.navigate(['/gastos-listado']);
       })
       .catch((error) => console.log(error));
   }

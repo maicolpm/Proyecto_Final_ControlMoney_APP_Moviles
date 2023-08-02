@@ -1,0 +1,23 @@
+<br><br><br><form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <ion-label class="form-label">Name</ion-label>
+    <ion-input type="text" formControlName="name"></ion-input>
+  </div>
+  <div class="mb-3">
+    <ion-label class="form-label">Description</ion-label>
+    <ion-textarea formControlName="description" rows="10"></ion-textarea>
+  </div>
+  <div class="mb-3">
+    <ion-label class="form-label">Latitude</ion-label>
+    <ion-input type="text" formControlName="latitude"></ion-input>
+  </div>
+  <div class="mb-3">
+    <ion-label class="form-label">Longitude</ion-label>
+    <ion-input type="text" formControlName="longitude"></ion-input>
+  </div>
+  <div class="mb-3">
+    <ion-label class="form-label">Image</ion-label>
+    <ion-input type="text" formControlName="image"></ion-input>
+  </div>
+  <ion-button type="submit" color="info">Enviar</ion-button>
+</form>
