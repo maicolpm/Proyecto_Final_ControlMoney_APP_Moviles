@@ -1,13 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonList } from '@ionic/angular';
-import { Cliente } from 'src/app/models/cliente.model';
-import { AlertService } from 'src/app/services/alert.service';
-import { CategoriaGastosService } from 'src/app/services/categoria-gastos.service';
-import { ToastService } from 'src/app/services/toast.service';
-import { Capacitor } from '@capacitor/core';
-import { Filesystem } from '@capacitor/filesystem';
-import { Directory } from '@capacitor/filesystem';
-
+import { Component, OnInit } from '@angular/core';
+import Place from 'src/app/models/place.model';
+import { PlaceService } from 'src/app/services/place.service';
 
 @Component({
   selector: 'app-categoria-gastos-listado',
@@ -15,53 +8,29 @@ import { Directory } from '@capacitor/filesystem';
   styleUrls: ['./categoria-gastos-listado.page.scss'],
 })
 export class CategoriaGastosListadoPage implements OnInit {
-  public clientes!: Cliente[];
-  @ViewChild('slidingList') slidingList!: IonList;
+  places: Place[];
 
-  constructor(    
-    private categoriaGastosService: CategoriaGastosService,
-    private toastService: ToastService,
-    private alertService: AlertService,) { }
-
-  ngOnInit() {
+  constructor(
+    private placesService: PlaceService
+  ) {
+    this.places = [{
+      name: 'Prueba de sitio',
+      description: 'Esto es una prueba',
+      latitude: 40,
+      longitude: -3,
+      image: 'https://media.timeout.com/images/105718969/750/422/image.jpg'
+    }];
   }
 
-  async ionViewWillEnter() {
-    this.clientes = await this.categoriaGastosService.getAll();
+  ngOnInit(): void {
+    this.placesService.getPlaces().subscribe(places => {
+      this.places = places;
+    })
   }
 
-  rutaFotoParaListado(foto: string) {
-    if (foto != '') {
-      return Capacitor.convertFileSrc(foto);
-    } else {
-      return 'assets/imgs/logo.png';
-    }
+  async onClickDelete(place: Place) {
+    const response = await this.placesService.deletePlace(place);
+    console.log(response);
   }
 
-  async removeCliente(cliente: Cliente) {
-    try {
-      const successFunction = async () => {
-        this.categoriaGastosService.removeById(cliente.clienteid);
-        const caminho: string = cliente.foto.substr(0, cliente.foto.lastIndexOf('/') + 1 );
-        const nomeArquivo: string = cliente.foto.substr(cliente.foto.lastIndexOf('/') + 1, (cliente.foto.length - caminho.length));
-        try {
-          if (cliente.foto != '') {
-            await Filesystem.deleteFile({
-              path: nomeArquivo, 
-              directory: Directory.Data,
-            });
-          }
-          this.toastService.presentToast('Cliente removido exitosamente', 3000, 'top');
-          this.slidingList.closeSlidingItems();
-        } catch (e:any) {
-          await this.alertService.presentAlert('Error', 'Remoción no ejecutada', e, ['Ok']);
-        }
-        this.clientes = await this.categoriaGastosService.getAll();
-      };
-      await this.alertService.presentConfirm('Remover Cliente', 'Confirma remoción?', successFunction);
-    } catch (e:any) {
-      await this.alertService.presentAlert('Error', 'Remoción no ejecutada', e, ['Ok']);
-    }
-  }
 }
-

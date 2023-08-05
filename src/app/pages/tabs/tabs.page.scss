@@ -1,33 +1,33 @@
 ion-tab-bar{
-    background: var(--ion-color-light);
-    border: 0;
+  background: var(--ion-color-light);
+  border: 0;
 }
 
 ion-tab-button{
-    --color-selected: var(--ion-color-primary);
-    --background: var(--ion-color-light);
+  --color-selected: var(--ion-color-primary);
+  --background: var(--ion-color-light);
 }
 
 /* Estilo para centrar verticalmente el contenido del título */
 ion-title {
-  display: flex;
-  align-items: center;
+display: flex;
+align-items: center;
 }
 
 /* Estilo para centrar horizontalmente el contenido del título */
 ion-title.ion-text-center {
-  justify-content: center;
+justify-content: center;
 }
 
 /* Estilo para el logotipo en el título */
 ion-title img {
-  height: 20px;
-  margin-right: 10px;
+height: 20px;
+margin-right: 10px;
 }
 
 /* Estilo para el título "ControlMONEY" */
 ion-title h1 {
-  font-size: 24px; /* Ajusta el tamaño del texto según tus preferencias */
-  margin: 0;
-  font-weight: bold; /* Opcional: para hacer el texto más grueso */
+font-size: 24px; /* Ajusta el tamaño del texto según tus preferencias */
+margin: 0;
+font-weight: bold; /* Opcional: para hacer el texto más grueso */
 }

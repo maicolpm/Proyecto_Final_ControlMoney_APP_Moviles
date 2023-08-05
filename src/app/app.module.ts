@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormBuilder } from '@angular/forms';
 
+import { IonicStorageModule } from '@ionic/storage-angular';
+
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 
 //para conectar a Firebase
@@ -23,6 +25,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
+    IonicStorageModule.forRoot(),
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() =>getFirestore()),

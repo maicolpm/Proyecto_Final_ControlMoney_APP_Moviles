@@ -23,11 +23,11 @@
 
   <ion-content>
     <ion-list>
-      <ion-item routerLink="/registro-ingresos" routerDirection="forward" (click)="closeMenu()">
+      <ion-item routerLink="ingresos-add-edit" routerDirection="forward" (click)="closeMenu()">
         <ion-icon name="add" slot="start"></ion-icon>
-        <span style="margin-left: 10px;">Añadir Ingreso</span>
+        <span style="margin-left: 10px;">Añadir/Editar Ingreso</span>
       </ion-item>
-      <ion-item routerLink="/lista-ingresos" routerDirection="forward" (click)="closeMenu()">
+      <ion-item routerLink="ingresos-listado" routerDirection="forward" (click)="closeMenu()">
         <ion-icon name="list" slot="start"></ion-icon>
         <span style="margin-left: 10px;">Lista de Ingresos</span>
       </ion-item>
@@ -37,15 +37,15 @@
         <span style="margin-left: 10px;">Total de Ingresos</span>
       </ion-item>
 
-      <ion-item routerLink="/registro-gastos" routerDirection="forward" (click)="closeMenu()">
+      <ion-item routerLink="gastos-add-edit" routerDirection="forward" (click)="closeMenu()">
         <ion-icon name="add" slot="start"></ion-icon>
-        <span style="margin-left: 10px;">Añadir Gasto</span>
+        <span style="margin-left: 10px;">Añadir/Editar Gasto</span>
       </ion-item>
-      <ion-item routerLink="/lista-gastos" routerDirection="forward" (click)="closeMenu()">
+      <ion-item routerLink="gastos-listado" routerDirection="forward" (click)="closeMenu()">
         <ion-icon name="list" slot="start"></ion-icon>
         <span style="margin-left: 10px;">Lista de Gastos</span>
       </ion-item>
-      <ion-item routerLink="home" routerDirection="forward" (click)="closeMenu()">
+      <ion-item routerLink="profile" routerDirection="forward" (click)="closeMenu()">
         <ion-icon name="stats-chart" slot="start"></ion-icon>
         <span style="margin-left: 10px;">Total de Gastos</span>
       </ion-item>
@@ -53,6 +53,15 @@
       <ion-item routerLink="about" routerDirection="forward" (click)="closeMenu()">
         <ion-icon name="information-circle" slot="start"></ion-icon>
         <span style="margin-left: 10px;">Acerca de</span>
+      </ion-item>
+
+      <ion-item routerLink="ordenesdeservicio-listado" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="add" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Añadir Ingreso</span>
+      </ion-item>
+      <ion-item routerLink="clientes-listado" routerDirection="forward" (click)="closeMenu()">
+        <ion-icon name="list" slot="start"></ion-icon>
+        <span style="margin-left: 10px;">Lista de Ingresos</span>
       </ion-item>
     </ion-list>
     

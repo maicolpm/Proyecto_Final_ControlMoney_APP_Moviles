@@ -8,7 +8,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   /*{
@@ -115,6 +115,14 @@ const routes: Routes = [
   {
     path: 'categoria-ingresos-listado',
     loadChildren: () => import('./pages/categorias/categoria-ingresos/categoria-ingresos-listado/categoria-ingresos-listado.module').then( m => m.CategoriaIngresosListadoPageModule)
+  },
+  {
+    path: 'gastos-total',
+    loadChildren: () => import('./pages/gastos/gastos-total/gastos-total.module').then( m => m.GastosTotalPageModule)
+  },
+  {
+    path: 'ingresos-total',
+    loadChildren: () => import('./pages/ingresos/ingresos-total/ingresos-total.module').then( m => m.IngresosTotalPageModule)
   },
   
 ];

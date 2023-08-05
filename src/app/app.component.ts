@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 
-import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public selectedIndex:any;
+  
+
+  public selectedIndex: any;
   pages = [
     {
       title: 'Atenciones',
@@ -22,35 +21,67 @@ export class AppComponent {
       icon: '/assets/imgs/logo.png'
     },
     {
-      title: 'home',
+      title: 'Home',
       url: '/home',
       icon: '/assets/imgs/logo.png'
     },
     {
-      title: 'profile',
+      title: 'Profile',
       url: '/profile',
       icon: '/assets/imgs/logo.png'
     },
     {
-      title: 'about',
+      title: 'About',
       url: '/about',
       icon: '/assets/imgs/logo.png'
+    },
+    {
+      title: 'Gastos',
+      icon: '/assets/imgs/logo.png',
+      children: [
+        {
+          title: 'Registrar Gasto',
+          url: '/gastos-add-edit',
+          icon: '/assets/imgs/logo.png',
+        },
+        {
+          title: 'Listas de Gastos',
+          url: '/gastos-listado',
+          icon: '/assets/imgs/logo.png',
+        },
+        {
+          title: 'Total de Gastos',
+          url: '/gastos-total',
+          icon: '/assets/imgs/logo.png',
+        }
+      ]
+    },
+    {
+      title: 'Ingresos',
+      icon: '/assets/imgs/logo.png',
+      children: [
+        {
+          title: 'Registrar Ingreso',
+          url: '/ingresos-add-edit',
+          icon: '/assets/imgs/logopequeño.png',
+        },
+        {
+          title: 'Lista de Ingresos',
+          url: '/ingresos-listado',
+          icon: '/assets/imgs/logo.png',
+        },
+        {
+          title: 'Total de Ingresos',
+          url: '/ingresos-total',
+          icon: '/assets/imgs/logo.png',
+        }
+      ]
     }
   ];
-  constructor(
-    private menuController: MenuController,
-    private router: Router) {}
+  isSubmenuOpen: boolean[] = [];
 
-
-  CerrarSesion() {
-    this.router.navigate(['/login']);
+  toggleSubmenu(index: number) {
+    this.isSubmenuOpen[index] = !this.isSubmenuOpen[index];
   }
-
-  closeMenu() {
-    this.menuController.close();
-  }
-  dirigirAbout(){
-    this.closeMenu();
-    this.router.navigate(['about']);
-  }
+  constructor() {this.isSubmenuOpen = this.pages.map(_ => true);}
 }
