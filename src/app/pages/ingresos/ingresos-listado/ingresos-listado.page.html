@@ -10,6 +10,13 @@
         </ion-title>
       </ion-toolbar>
     </ion-header>
+    
+    <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true" style="top: 90px;">
+      <ion-fab-button routerDirection="forward" routerLink="/ingresos-add-edit">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    
 
       <ion-list>
         <ion-item-sliding *ngFor="let ingreso of ingresos" (click)="editarIngreso(ingreso)">
@@ -42,8 +49,10 @@
           </ion-item-options>
         </ion-item-sliding>
       </ion-list>
+      
 
 
   </div>
 
 </ion-content>
+

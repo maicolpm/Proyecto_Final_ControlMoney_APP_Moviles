@@ -9,6 +9,9 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  showButtons: boolean = false;
+
   totalDia: number = 0;
   totalSemana: number = 0;
   totalMes: number = 0;
@@ -29,6 +32,10 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.calcularTotalGastos();
     this.calcularTotalIngresos();
+  }
+
+  toggleButtons() {
+    this.showButtons = !this.showButtons;
   }
 
   closeMenu() {

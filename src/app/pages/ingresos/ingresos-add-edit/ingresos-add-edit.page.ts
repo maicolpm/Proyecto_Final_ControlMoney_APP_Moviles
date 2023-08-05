@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-ingresos-add-edit',
@@ -11,7 +12,10 @@ export class IngresosAddEditPage implements OnInit {
   monto: number = 0;
   categoria: string='';
   detalles: string='';
-  constructor(private navCtrl: NavController, private storage: Storage) { }
+  constructor(private navCtrl: NavController, private storage: Storage,
+    
+    private toastService:  ToastService
+    ) { }
 
   ngOnInit() {
   }
@@ -28,6 +32,7 @@ export class IngresosAddEditPage implements OnInit {
     ingresos.push(ingreso);
     await this.storage.set('ingresos', ingresos);
 
+    this.toastService.presentToast('Registro Exitoso',3000, 'top');
     this.navCtrl.navigateForward('/ingresos-listado');
   }
 

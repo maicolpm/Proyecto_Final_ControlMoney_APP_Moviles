@@ -18,7 +18,7 @@ export class AppComponent {
     {
       title: 'Pestañas',
       url: '/clientes-listado',
-      icon: '/assets/imgs/logo.png',
+      icon: '/assets/imgs/pestana.png',
       children: [
         {
           title: 'Home',
@@ -41,7 +41,7 @@ export class AppComponent {
     
     {
       title: 'Gastos',
-      icon: '/assets/imgs/logo.png',
+      icon: '/assets/imgs/gastos.png',
       children: [
         {
           title: 'Registrar Gasto',
@@ -62,12 +62,12 @@ export class AppComponent {
     },
     {
       title: 'Ingresos',
-      icon: '/assets/imgs/logo.png',
+      icon: '/assets/imgs/ingresos.png',
       children: [
         {
           title: 'Registrar Ingreso',
           url: '/ingresos-add-edit',
-          icon: '/assets/imgs/logopequeño.png',
+          icon: '/assets/imgs/ingresos.png',
         },
         {
           title: 'Lista de Ingresos',

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastService } from 'src/app/services/toast.service';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -16,7 +17,8 @@ export class RegisterPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService,
     ) 
     {
       this.formRegister = this.formBuilder.group({
@@ -40,6 +42,8 @@ export class RegisterPage implements OnInit {
     this.userService.register(this.formRegister.value)
       .then(response => {
         console.log(response);
+        
+        this.toastService.presentToast('Usuario Registrado',3000, 'top');
         this.router.navigate(['/login']);
       })
       .catch(error => console.log(error));

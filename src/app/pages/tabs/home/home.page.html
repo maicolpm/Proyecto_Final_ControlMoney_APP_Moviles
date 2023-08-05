@@ -7,7 +7,21 @@
 
     <h1 class="ion-text-center ion-no-margin">Home</h1>
     <br><br>
-
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="bottom: 100px;">
+      <ion-fab-button (click)="toggleButtons()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <div class="additional-buttons" *ngIf="showButtons">
+        <button class="income-button">
+          <ion-icon routerLink="/ingresos-add-edit" name="add" class="expense-icon"></ion-icon>
+        </button>
+        <button class="expense-button">
+          <ion-icon routerLink="/gastos-add-edit" name="remove" class="income-icon"></ion-icon>
+        </button>
+      </div>
+    </ion-fab>
+    
+    
       <ion-list>
         <ion-item>
           <ion-label>Total de Gastos del Día:</ion-label>

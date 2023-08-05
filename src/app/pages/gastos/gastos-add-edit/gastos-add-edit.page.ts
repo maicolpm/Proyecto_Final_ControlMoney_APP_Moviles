@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-gastos-add-edit',
@@ -14,7 +15,9 @@ export class GastosAddEditPage implements OnInit {
   fecha: Date = new Date(); 
   constructor(
     private storage: Storage,
-    private router: Router,) {
+    private router: Router,
+    private toastService:  ToastService
+    ) {
     this.monto = 0;
    }
 
@@ -41,6 +44,7 @@ export class GastosAddEditPage implements OnInit {
         this.storage.set('gastos', [gasto]);
       }
       console.log('Gasto guardado exitosamente.');
+      this.toastService.presentToast('Registro Exitoso',3000, 'top');
       this.router.navigate(['/gastos-listado']);
       this.resetFields();
     }).catch(error => {
