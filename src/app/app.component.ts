@@ -11,30 +11,34 @@ export class AppComponent {
   public selectedIndex: any;
   pages = [
     {
-      title: 'Atenciones',
-      url: '/ordenesdeservicio-listado',
-      icon: '/assets/imgs/logo.png'
-    },
-    {
-      title: 'Clientes',
-      url: '/clientes-listado',
-      icon: '/assets/imgs/logo.png'
-    },
-    {
-      title: 'Home',
+      title: 'Dashboard',
       url: '/home',
       icon: '/assets/imgs/logo.png'
     },
     {
-      title: 'Profile',
-      url: '/profile',
-      icon: '/assets/imgs/logo.png'
+      title: 'Pestañas',
+      url: '/clientes-listado',
+      icon: '/assets/imgs/logo.png',
+      children: [
+        {
+          title: 'Home',
+          url: '/home',
+          icon: '/assets/imgs/logo.png'
+          
+        },
+        {
+          title: 'Profile',
+          url: '/profile',
+          icon: '/assets/imgs/logo.png'
+        },
+        {
+          title: 'About',
+          url: '/about',
+          icon: '/assets/imgs/logo.png'
+        }
+      ]
     },
-    {
-      title: 'About',
-      url: '/about',
-      icon: '/assets/imgs/logo.png'
-    },
+    
     {
       title: 'Gastos',
       icon: '/assets/imgs/logo.png',

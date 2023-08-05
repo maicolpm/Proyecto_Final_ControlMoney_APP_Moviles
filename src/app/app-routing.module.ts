@@ -3,7 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginPage } from './pages/usuarios/login/login.page';
 import { RegistrarusuarioPage } from './pages/usuarios/registrarusuario/registrarusuario.page';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
-
 const routes: Routes = [
   
   {
@@ -67,38 +66,46 @@ const routes: Routes = [
   
   {
     path: 'home',
-    loadChildren: () => import('./pages/tabs/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/tabs/home/home.module').then( m => m.HomePageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   {
     path: 'profile',
-    loadChildren: () => import('./pages/tabs/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./pages/tabs/profile/profile.module').then( m => m.ProfilePageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   {
     path: 'about',
-    loadChildren: () => import('./pages/tabs/about/about.module').then( m => m.AboutPageModule)
+    loadChildren: () => import('./pages/tabs/about/about.module').then( m => m.AboutPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
 
 
 
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   {
     path: 'gastos-add-edit',
-    loadChildren: () => import('./pages/gastos/gastos-add-edit/gastos-add-edit.module').then( m => m.GastosAddEditPageModule)
+    loadChildren: () => import('./pages/gastos/gastos-add-edit/gastos-add-edit.module').then( m => m.GastosAddEditPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   {
     path: 'gastos-listado',
-    loadChildren: () => import('./pages/gastos/gastos-listado/gastos-listado.module').then( m => m.GastosListadoPageModule)
+    loadChildren: () => import('./pages/gastos/gastos-listado/gastos-listado.module').then( m => m.GastosListadoPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   {
     path: 'ingresos-add-edit',
-    loadChildren: () => import('./pages/ingresos/ingresos-add-edit/ingresos-add-edit.module').then( m => m.IngresosAddEditPageModule)
+    loadChildren: () => import('./pages/ingresos/ingresos-add-edit/ingresos-add-edit.module').then( m => m.IngresosAddEditPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   {
     path: 'ingresos-listado',
-    loadChildren: () => import('./pages/ingresos/ingresos-listado/ingresos-listado.module').then( m => m.IngresosListadoPageModule)
+    loadChildren: () => import('./pages/ingresos/ingresos-listado/ingresos-listado.module').then( m => m.IngresosListadoPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   {
     path: 'categoria-gastos-add-edit',
@@ -118,11 +125,13 @@ const routes: Routes = [
   },
   {
     path: 'gastos-total',
-    loadChildren: () => import('./pages/gastos/gastos-total/gastos-total.module').then( m => m.GastosTotalPageModule)
+    loadChildren: () => import('./pages/gastos/gastos-total/gastos-total.module').then( m => m.GastosTotalPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   {
     path: 'ingresos-total',
-    loadChildren: () => import('./pages/ingresos/ingresos-total/ingresos-total.module').then( m => m.IngresosTotalPageModule)
+    loadChildren: () => import('./pages/ingresos/ingresos-total/ingresos-total.module').then( m => m.IngresosTotalPageModule),
+    ...canActivate(() => redirectUnauthorizedTo(['/login'])),
   },
   
 ];
